@@ -1,0 +1,43 @@
+extends layout
+
+block body
+  .navbar.navbar-default.navbar-fixed-top(role="navigation")
+    .navbar-header
+      button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-ex1-collapse")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href="#") App Download
+    
+    .collapse.navbar-collapse.navbar-ex1-collapse
+      ul.nav.navbar-nav
+        li
+          a(href="view1") TouchBanking
+        li  
+          a(href="view2") CBA
+  .container      
+    div(ng-controller='AppCtrl')
+        div.well(ng-repeat="item in allDirs")
+            a(href="{{item.downloadLink}}", target="_blank")
+                span(style="float:left;margin-right: 15px")
+                    img(src="http://findicons.com/files/icons/1254/flurry_system/128/downloads.png", width="90", height="90")
+            h4(style="margion-bottom: 0.4em") Version: {{item.versionNumber}}
+            div.clearfix
+                p(style="color: #df691a") Created on {{item.createdDate}}
+
+    hr  
+    div
+      | ASP iPhone app downloader:
+      span(app-version)
+
+  script(src='js/lib/angular/angular.js')
+  script(src='js/lib/angular/angular-route.js')
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')
+  script(src='js/lib/jquery/jquery-2.0.3.min.js')
+  script(src='bootstrap/js/bootstrap.min.js')
+  
